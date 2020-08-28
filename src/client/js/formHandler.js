@@ -186,6 +186,14 @@ function dynamicUpdateUI(projectData) {
     getWeatherIcon(projectData.weatherIcon);
 
 }
+let removeBtn = document.querySelector("#remove");
+let trip = document.querySelector("#responsesSection");
+removeBtn.addEventListener("click", remove);
+function remove (){
+
+trip.remove();
+}
+
 
 export {
     handleSubmit,
