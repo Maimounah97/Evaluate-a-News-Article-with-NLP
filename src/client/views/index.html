@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Test</title>
+    </head>
+
+    <body>
+
+        <header>
+            <div class="">
+                Logo
+            </div>
+            <div class="">
+                Travel App
+            </div>
+        </header>
+
+        <main>
+            <section>
+                <form class="" onsubmit="return Client.handleSubmit(event)">
+                    <!-- <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Name"> -->
+                    <input id="tripLoc" type="text" name="Location" placeholder="Enter Location">
+                    <input id="depDate" type="date" name="Departure date" placeholder="YYYY-MM-DD">
+                    <input id="reDate" type="date" name="Returning date" placeholder="YYYY-MM-DD">
+                    <input type="submit" id="save"name="" value="save" onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">
+                </form>  
+            <section>
+
+            
+                 <!-- <section id="results">
+                    <strong></strong>
+                    <ul>
+                        <li>
+                            <span id="location"></span>
+                        </li>
+                        <li>
+                            <span id="daysAway"></span>
+                        </li>
+                        <li>
+                            <span id="maxTemp"></span>
+                        </li>
+                        <li>
+                            <span id="minTemp"></span>
+                        </li>
+                        <li>
+                            <span id="weather"></span>
+                        </li>
+                        <li>
+                            <img id="cityImage" src="" alt="City image">
+                        </li>
+                        
+                       
+                    </ul>
+                </section> -->
+                <section class='hidden flex-container' id="responsesSection">
+                    <div class="flex-item" :nth-child>
+                        <img id="cityImage" src="" alt="City image">
+                    </div>
+                    <div class="flex-item" id="tripDetails" :nth-child>
+                        <div>
+                            <span class="bold">My Trip to:</span>
+                            <span class="bold" id="myTripToCity"></span>
+                            <span class="bold">, </span>
+                            <span class="bold" id="myTripToCountry"></span>
+                            <img id="countryFlags" src="" />
+                        </div>
+                        <button id="reset" class="btn btn-danger">Remove</button>
+                        <div>
+                            <span class="bold">Departing:</span>
+                            <span class="bold" id="dateOfDeparting"></span>
+                        </div>
+                        <span>The length of the trip is</span>
+                        <span id="daysAway"></span><span> days </span>
+                        <div>
+                            <span class="bold">Typical weather for then is:</span>
+                        </div>
+            
+                        <span>High- </span>
+                        <span id="maxTemp"></span><span>&#8451;</span>
+                        <span>, Low- </span>
+                        <span id="minTemp"></span><span>&#8451;</span>
+                        <div>
+                            <span>Mostly </span><span id="weatherCondition"></span><span> through the
+                                day</span>
+                            <img id="weatherIcon" src="" />
+                        </div>
+            
+                    </div>
+                    </div>
+                    </div>
+                </section>
+            
+        </main>
+
+        <footer>
+            <p>This is a footer</p>
+        </footer>
+        <script>
+            // Check that service workers are supported
+            if ('serviceWorker' in navigator) {
+                // Use the window load event to keep the page load performant
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js');
+                });
+            }
+           </script>
+    </body>
+</html>
