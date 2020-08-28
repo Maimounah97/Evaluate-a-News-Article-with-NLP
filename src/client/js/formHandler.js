@@ -1,9 +1,13 @@
 
 const submit = document.querySelector("#save");
 
+// popup message
+
+
 submit.addEventListener("click", handleSubmit);
 
 const projectData = {};
+const responsesSection = document.querySelector("#responsesSection");
 function handleSubmit(event) {
     event.preventDefault();
     // Storing city name in the projectData object
@@ -11,8 +15,7 @@ function handleSubmit(event) {
     projectData.tripLoc = tripLoc;
     //lengthOfTrip function parameters
     let depDate = document.querySelector("#depDate").value;
-    //let dateOfDeparting = document.querySelector("#dateOfDeparting");
-    //dateOfDeparting.innerHTML = depDate;
+   
     projectData.depDate = depDate;
      let reDate = document.querySelector("#reDate").value;
      projectData.reDate = reDate;
@@ -46,22 +49,12 @@ function handleSubmit(event) {
                 projectData.weatherCondition = weatherInfo["data"]["0"]["weather"]["description"];
                 // store weather code icon to show icon of weather later on 
                 projectData.weatherIcon = weatherInfo["data"]["0"]["weather"]["icon"];
-                // console.log('maxT '+ weatherInfo["data"][0]["max_temp"])
-                // console.log('minT '+ weatherInfo["data"][0]["min_temp"])
-                // console.log('d '+ weatherInfo["data"]["0"]["weather"]["description"])
-                // let maxTemp = document.querySelector("#maxTemp");
-                // let minTemp = document.querySelector("#minTemp");
-                // let weatherCondition = document.querySelector("#weatherCondition");
-                // maxTemp.innerHTML = weatherInfo["data"][0]["max_temp"];
-                // minTemp.innerHTML = weatherInfo["data"][0]["min_temp"];
-                // weatherCondition.innerHTML = weatherInfo["data"]["0"]["weather"]["description"];
+                
              return getImage(projectData.tripLoc)
             }).then(function (imageInfo) {
                 // to store city url Image data in projectData object
                 projectData.cityImage = imageInfo["hits"][0]["largeImageURL"];
-                // console.log("project data are : ");
-                // console.log(projectData);
-                // call post function
+                
                 return postProjectData(projectData);
                 console.log("project data are : ");
                 console.log(projectData);
@@ -155,12 +148,20 @@ function getConteryFlag(countryCode) {
 function getWeatherIcon(weatherCodeIcon) {
     weatherIcon.setAttribute("src", `https://www.weatherbit.io/static/img/icons/${weatherCodeIcon}.png`);
 }
+// function toggle(){
+//      var blur = document.getElementById('blur');
+//      blur.classList.toggle('active')
+//     var popup = document.getElementById('popup');
+//     popup.classList.toggle('active')
+  
+//   }
 
 // Function to update UI
 function dynamicUpdateUI(projectData) {
+    document.getElementById("responsesSection").style.display = "block";
     console.log("data in d ui ");
     console.log(projectData);
-    responsesSection.classList.remove("hidden");
+    //responsesSection.remove("hidden");
     let cityImage = document.querySelector("#cityImage");
     let myTripToCity = document.querySelector("#tripLoc");
     let myTripToCountry = document.querySelector("#myTripToCountry");

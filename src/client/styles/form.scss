@@ -11,7 +11,41 @@ input {
     line-height: 16px;
     margin: 10px 0;
    
+    
 }
-#results{
+#responsesSection{
+  display: none;
+  border: 1px solid #545454;
+    border-radius: 3px;
+    padding: 40px;
     text-align: center;
 }
+#cityImage{
+  width: 50%;
+}
+/*popup message style*/
+#popup {
+    position: fixed;
+    top:40%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 50px;
+    box-shadow: 0 5px 30px rgba(0,0,0,.30);
+    background-color:#333;
+    color: white;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+  
+  }
+  #popup.active {
+    top:50%;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;
+  }
+  #popup .btn:hover {
+    background-color:rgb(255, 230, 232);
+  
+  }
