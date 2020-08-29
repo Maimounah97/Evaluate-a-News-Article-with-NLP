@@ -22,6 +22,24 @@ module.exports = {
             {
                 test: /\.scss$/,
                 use: [ 'style-loader', 'css-loader', 'sass-loader' ]
+            },
+            // {
+            //     test: /\.(png|svg|jpg|gif)$/,
+            //     use: ['file-loader',]
+            // },
+            {
+                test: /\.(png|jpe?g|gif|svg)$/i,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[hash].[ext]',
+                            publicPath: './src/client/imgages/',
+                            outputPath: './src/client/imgages/',
+                            esModule: false
+                        }
+                    }
+                ]
             }
         ]
     },
