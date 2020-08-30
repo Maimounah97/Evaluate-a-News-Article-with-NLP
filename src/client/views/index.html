@@ -3,23 +3,21 @@
     <head>
         <meta charset="utf-8">
         <title>Test</title>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     </head>
 
     <body>
 
         <header>
-            <img src="../images/undraw_aircraft_fbvl.png" alt="">
-                
-           
-            <div class="">
+            
                 Travel App
-            </div>
+            
             
         </header>
 
         <main>
          
-            <section>
+            <section > 
                 <form class="" onsubmit="return Client.handleSubmit(event)">
                     <!-- <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Name"> -->
                     <input id="tripLoc" type="text" name="Location" placeholder="Enter Location">
@@ -29,6 +27,43 @@
                     <input id="reDate" type="date" name="Returning date" placeholder="YYYY-MM-DD">
                     <input type="submit" id="save"name="" value="save" onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">
                 </form>  
+            </section>
+            <section id = "trip">
+                <div id="tripCard">
+                    <div id ="tripMainInfo">
+                        <span class="bold">My Trip to:</span>
+                        <span class="bold" id="myTripToCity"></span>
+                        <span class="bold">, </span>
+                        <span class="bold" id="myTripToCountry"></span><br>
+                        <img id="countryFlags" src="" />
+                    </div>
+                    <img id="cityImage" src="" alt="City image">
+                    <div>
+                        <span class="bold">Departing:</span>
+                        <span class="bold" id="dateOfDeparting"></span>
+                    </div>
+                    <div>
+                     <span class="bold">The length of the trip is:</span>
+                     <span id="daysAway"></span><span> days </span>
+                    </div>
+                    <div>
+                    <span class="bold">Typical weather for then is:</span>
+                    
+            
+                    <span>High- </span>
+                    <span id="maxTemp"></span><span>&#8451;</span>
+                    <span>, Low- </span>
+                    <span id="minTemp"></span><span>&#8451;</span>
+    
+                    <span>Mostly </span><span id="weatherCondition"></span><span> through the day</span><br>
+                    <img id="weatherIcon" src="" />
+                
+                    
+                </div>
+                <i id="remove"class="fas fa-trash-alt fa-3x"></i>
+                    <!-- <button id="remove" class="btn btn-danger">Remove</button> -->
+
+                </div>
             </section>
 
             
@@ -57,7 +92,7 @@
                        
                     </ul>
                 </section> -->
-                <section class='hidden flex-container' id="responsesSection">
+                <!-- <section class='flex-container' id="responsesSection">
                     <div class="flex-item" :nth-child>
                         <img id="cityImage" src="" alt="City image">
                     </div>
@@ -94,7 +129,7 @@
                     </div>
                     </div>
                     </div>
-                </section>
+                </section> -->
             
                 <!-- <div id ="popup">
                     <h2>Learn more </h2>
@@ -106,7 +141,7 @@
         </main>
 
         <footer>
-            <p>This is a footer</p>
+            <p>made with <i class="far fa-heart"></i> by Maimounah </p>
         </footer>
         
         <script >

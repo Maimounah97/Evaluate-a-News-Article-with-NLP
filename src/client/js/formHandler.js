@@ -158,7 +158,7 @@ function getWeatherIcon(weatherCodeIcon) {
 
 // Function to update UI
 function dynamicUpdateUI(projectData) {
-    document.getElementById("responsesSection").style.display = "block";
+    document.getElementById("trip").style.display = "block";
     console.log("data in d ui ");
     console.log(projectData);
     //responsesSection.remove("hidden");
@@ -187,7 +187,7 @@ function dynamicUpdateUI(projectData) {
 
 }
 let removeBtn = document.querySelector("#remove");
-let trip = document.querySelector("#responsesSection");
+let trip = document.querySelector("#trip");
 removeBtn.addEventListener("click", remove);
 function remove (){
 
