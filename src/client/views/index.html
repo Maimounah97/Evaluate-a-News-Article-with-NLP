@@ -16,18 +16,19 @@
         </header>
 
         <main>
-         
+            <!-- form section -->
             <section > 
                 <form class="" onsubmit="return Client.handleSubmit(event)">
-                    <!-- <input id="name" type="text" name="input" value="" onblur="onBlur()" placeholder="Name"> -->
-                    <input id="tripLoc" type="text" name="Location" placeholder="Enter Location">
-                    <h3>Enter Departure date </h3>
+                    <h3>Destination</h3>
+                    <input id="tripLoc" type="text" name="Location" placeholder="city">
+                    <h3>Departure</h3>
                     <input id="depDate" type="date" name="Departure date" placeholder="YYYY-MM-DD">
-                    <h3>Enter Returning date </h3>
+                    <h3>Returning</h3>
                     <input id="reDate" type="date" name="Returning date" placeholder="YYYY-MM-DD">
                     <input type="submit" id="save"name="" value="save" onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">
                 </form>  
             </section>
+            <!-- trip information section -->
             <section id = "trip">
                 <div id="tripCard">
                     <div id ="tripMainInfo">
@@ -60,88 +61,16 @@
                 
                     
                 </div>
-                <i id="remove"class="fas fa-trash-alt fa-3x"></i>
-                    <!-- <button id="remove" class="btn btn-danger">Remove</button> -->
+                <i id="remove"class="fas fa-trash-alt fa-3x" ></i>
+                      
 
                 </div>
             </section>
 
-            
-                 <!-- <section id="results">
-                    <strong></strong>
-                    <ul>
-                        <li>
-                            <span id="location"></span>
-                        </li>
-                        <li>
-                            <span id="daysAway"></span>
-                        </li>
-                        <li>
-                            <span id="maxTemp"></span>
-                        </li>
-                        <li>
-                            <span id="minTemp"></span>
-                        </li>
-                        <li>
-                            <span id="weather"></span>
-                        </li>
-                        <li>
-                            <img id="cityImage" src="" alt="City image">
-                        </li>
-                        
-                       
-                    </ul>
-                </section> -->
-                <!-- <section class='flex-container' id="responsesSection">
-                    <div class="flex-item" :nth-child>
-                        <img id="cityImage" src="" alt="City image">
-                    </div>
-                    <div class="flex-item" id="tripDetails" :nth-child>
-                        <div>
-                            <span class="bold">My Trip to:</span>
-                            <span class="bold" id="myTripToCity"></span>
-                            <span class="bold">, </span>
-                            <span class="bold" id="myTripToCountry"></span>
-                            <img id="countryFlags" src="" />
-                        </div>
-                        
-                        <div>
-                            <span class="bold">Departing:</span>
-                            <span class="bold" id="dateOfDeparting"></span>
-                        </div>
-                        <span>The length of the trip is</span>
-                        <span id="daysAway"></span><span> days </span>
-                        <div>
-                            <span class="bold">Typical weather for then is:</span>
-                        </div>
-            
-                        <span>High- </span>
-                        <span id="maxTemp"></span><span>&#8451;</span>
-                        <span>, Low- </span>
-                        <span id="minTemp"></span><span>&#8451;</span>
-                        <div>
-                            <span>Mostly </span><span id="weatherCondition"></span><span> through the
-                                day</span>
-                            <img id="weatherIcon" src="" />
-                        </div>
-                        <button id="remove" class="btn btn-danger">Remove</button>
-            
-                    </div>
-                    </div>
-                    </div>
-                </section> -->
-            
-                <!-- <div id ="popup">
-                    <h2>Learn more </h2>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore laborum,<br>
-                       impedit magnam voluptas doloremque a in laboriosam eius consequatur tenetur, <br>
-                       corrupti ad numquam, at corporis ullam hic. Fuga, autem beatae!</p>
-                    <button >close</button></p>   
-                  </div>  -->
         </main>
 
         <footer>
-            <p>made with <i class="far fa-heart"></i> by Maimounah </p>
+            <p>made with <i class="far fa-heart"></i>  by Maimounah </p>
         </footer>
         
         <script >

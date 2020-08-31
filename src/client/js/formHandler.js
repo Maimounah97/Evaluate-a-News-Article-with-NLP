@@ -1,11 +1,4 @@
 
-const submit = document.querySelector("#save");
-
-// popup message
-
-
-submit.addEventListener("click", handleSubmit);
-
 const projectData = {};
 const responsesSection = document.querySelector("#responsesSection");
 function handleSubmit(event) {
@@ -30,36 +23,36 @@ function handleSubmit(event) {
                 const longitude = cityInfo.geonames[0].lng;
                 console.log('latitude : '+latitude+' longitude : '+longitude)
                 const date = projectData["depDate"];
-                // to store country name of city name in projectData object 
+                // store country name of city name in projectData object 
                 projectData.countryName = cityInfo.geonames[0].countryName;
-                // to store country code used later on to show flag of country
+                // store country code 
                 projectData.countryCode = cityInfo.geonames[0].countryCode;
                 console.log('countryName : '+ cityInfo.geonames[0].countryName +' countryCode : '+ cityInfo.geonames[0].countryCode);
-                let myTripToCity = document.querySelector("#myTripToCity");
-                let myTripToCountry = document.querySelector("#myTripToCountry");
-                myTripToCity.innerHTML = tripLoc;
-                myTripToCountry.innerHTML = cityInfo.geonames[0].countryName;
+                // let myTripToCity = document.querySelector("#myTripToCity");
+                // let myTripToCountry = document.querySelector("#myTripToCountry");
+                // myTripToCity.innerHTML = tripLoc;
+                // myTripToCountry.innerHTML = cityInfo.geonames[0].countryName;
                 
                 // call getWeatherOfCity function to return weather data
                 return getWeatherOfCity(latitude, longitude, date);
             }).then(function (weatherInfo) {
-                // store maxTemp,minTemp and weatherCondition data in projectData object 
+                // store maxTemp,minTemp , weatherCondition and weatherIcon data in projectData object 
                 projectData.maxTemp = weatherInfo["data"][0]["max_temp"];
                 projectData.minTemp = weatherInfo["data"][0]["min_temp"];
-                projectData.weatherCondition = weatherInfo["data"]["0"]["weather"]["description"];
-                // store weather code icon to show icon of weather later on 
+                projectData.weatherCondition = weatherInfo["data"]["0"]["weather"]["description"]; 
                 projectData.weatherIcon = weatherInfo["data"]["0"]["weather"]["icon"];
-                
+                // call getImage function to get city url image
              return getImage(projectData.tripLoc)
             }).then(function (imageInfo) {
                 // to store city url Image data in projectData object
                 projectData.cityImage = imageInfo["hits"][0]["largeImageURL"];
                 
                 return postProjectData(projectData);
+                // print project data on console
                 console.log("project data are : ");
                 console.log(projectData);
+                //  Update UI 
             }).then(function (projectData) {
-                // to Update UI view
                 dynamicUpdateUI(projectData);
             })
     } catch (error) {
@@ -67,7 +60,7 @@ function handleSubmit(event) {
     }
 }
 
-// Function to get Coordinates of city from geoNames
+// get Coordinates of city from geoNames
 async function getCityCoordinates(city) {
     const geoNamesUrl = `https://secure.geonames.org/searchJSON?q=${city}&maxRows=10&username=Maimounah97`;
     const response = await fetch(geoNamesUrl, { mode: 'cors' });
@@ -79,6 +72,7 @@ async function getCityCoordinates(city) {
     }
     console.log(response);
 }
+// get weather information
 async function getWeatherOfCity(latitude, longitude, date) {
     const forecastUrl = `https://api.weatherbit.io/v2.0/forecast/daily?lat=${latitude}&lon=${longitude}&key=4f93b973405c43ebb8715ceb397e4beb`;
     const response = await fetch(forecastUrl, { mode: 'cors' })
@@ -90,7 +84,7 @@ async function getWeatherOfCity(latitude, longitude, date) {
     }
 }
 
-// Async function to get data from Pixabay
+//  get city url image from Pixabay
 async function getImage(city) {
     const PixaBayApiUrl = `https://pixabay.com/api/?key=18047960-e4eb94ccdf0e75ec1b7c5f7ba&q=${city}&category=places&image_type=photo`;
     const response = await fetch(PixaBayApiUrl, { mode: 'cors' })
@@ -125,48 +119,48 @@ async function postProjectData(projectData) {
     
 }
 
-//Function to get the difference between two dates
+// get the difference between two dates
 function lengthOfTrip(date1, date2) {
     let fristDate = new Date(date1);
     let secondDate = new Date(date2);
     const differenceInTime = Math.abs(fristDate - secondDate);
-    //console.log(differenceInTime);
     const differenceInDays = Math.ceil(differenceInTime / (1000 * 60 * 60 * 24));
     return differenceInDays;
 }
-//Function to get the city image
+// get the city image
 function getCityImage(imageUrl) {
     cityImage.setAttribute("src", imageUrl);
 }
-//Function to get the contery flag
+// get the contery flag
 function getConteryFlag(countryCode) {
 
     countryFlags.setAttribute("src", `https://www.countryflags.io/${countryCode}/flat/64.png`);
 }
 
-//Function to get the weather icon
+// get the weather icon
 function getWeatherIcon(weatherCodeIcon) {
     weatherIcon.setAttribute("src", `https://www.weatherbit.io/static/img/icons/${weatherCodeIcon}.png`);
 }
-// function toggle(){
-//      var blur = document.getElementById('blur');
-//      blur.classList.toggle('active')
-//     var popup = document.getElementById('popup');
-//     popup.classList.toggle('active')
-  
-//   }
 
-// Function to update UI
+
+//  update UI and scroll the window
 function dynamicUpdateUI(projectData) {
-    document.getElementById("trip").style.display = "block";
-    console.log("data in d ui ");
-    console.log(projectData);
-    //responsesSection.remove("hidden");
+    // translate the display state from none to block
+    let trip = document.querySelector("#trip");
+    trip.style.display = "block";
+    // start to scrll the window
+    let tripPos = trip.getBoundingClientRect();
+    window.scrollTo({
+        top : tripPos.y,
+        behavior: "smooth"
+
+    });
+
+    // print the trip information
     let cityImage = document.querySelector("#cityImage");
     let myTripToCity = document.querySelector("#tripLoc");
     let myTripToCountry = document.querySelector("#myTripToCountry");
     let countryFlags = document.querySelector("#countryflags");
-   // let dateOfDeparting = document.querySelector("#dateOfDeparting");
     let daysAway = document.querySelector("#daysAway");
     let maxTemp = document.querySelector("#maxTemp");
     let minTemp = document.querySelector("#minTemp");
@@ -178,7 +172,6 @@ function dynamicUpdateUI(projectData) {
      myTripToCity.innerHTML = projectData.tripLoc;
      myTripToCountry.innerHTML = projectData.countryName;
     getConteryFlag(projectData.countryCode);
-     //dateOfDeparting.innerHTML = data[3];
     daysAway.innerHTML = projectData.daysAway;
     maxTemp.innerHTML = projectData.maxTemp;
      minTemp.innerHTML = projectData.minTemp;
@@ -186,13 +179,7 @@ function dynamicUpdateUI(projectData) {
     getWeatherIcon(projectData.weatherIcon);
 
 }
-let removeBtn = document.querySelector("#remove");
-let trip = document.querySelector("#trip");
-removeBtn.addEventListener("click", remove);
-function remove (){
 
-trip.remove();
-}
 
 
 export {

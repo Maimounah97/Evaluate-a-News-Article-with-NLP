@@ -1,3 +1,13 @@
+
+header {
+    text-align: center;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    padding-top:20px ;
+
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -54,16 +64,67 @@ span.bold{
   
     
 }
-
-@media screen and (max-width: 300px){
-    #cityImage{
-        float: none;
-    
-    }
-    
-
-
+body {
+    line-height: 1;
 }
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+    
+    &:before, &:after {
+        content: '';
+        content: none;
+    }
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+form {
+    box-shadow: 0 5px 30px rgba(0,0,0,.30);
+    border-radius: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    text-align: center;
+    background-color:rgb(187, 153, 176);
+    opacity: 0.8;
+    
+}
+
+
+input {
+    padding: 5px 20px;
+    width: 50%;
+    line-height: 16px;
+    margin: 10px 0;
+   
+    
+}
+footer {
+   
+    color: white;
+    text-align: center;
+}
+h3{
+    margin: 0;
+}
+ #remove:hover {
+    transform: scale(1.2);
+ }
+
+
+
+
+
+  
+
+
+
 
 
   
