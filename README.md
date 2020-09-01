@@ -25,5 +25,5 @@
  Run npm test 
 
  # Project demo 
- 
+ ![Travel app demo](Demorun.gif)
 
