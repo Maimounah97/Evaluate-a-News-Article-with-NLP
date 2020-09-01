@@ -2,12 +2,12 @@
 
 # Project Summary
  This application allows you to add trip by abtainig the city , departure date and returning date from you and display trip information:<br>
- 1- City and country name
- 2- Country flag
- 3- City image 
- 4- Length of the trip
- 5- Weather information
- 6- Weather icon
+ 1- City and country name<br>
+ 2- Country flag<br>
+ 3- City image <br>
+ 4- Length of the trip <br>
+ 5- Weather information<br>
+ 6- Weather icon<br>
 
  # Other requirements
  1- Add end date and display length of trip
