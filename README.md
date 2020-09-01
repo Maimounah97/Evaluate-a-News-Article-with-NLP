@@ -25,5 +25,5 @@
  Run npm test 
 
  # Project demo 
- <a href="https://imgflip.com/gif/4deotm"></a>
+ 
 
