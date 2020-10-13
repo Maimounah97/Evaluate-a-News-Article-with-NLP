@@ -1,7 +1,7 @@
 # Travel App 
 
 # Project Summary
- This application allows you to add trip by abtainig the city , departure date and returning date from you and display trip information:<br>
+ This application allows you to add trip by obtaining the city , departure date and returning date from you and display trip information:<br>
  1- City and country name<br>
  2- Country flag<br>
  3- City image <br>
