@@ -24,6 +24,6 @@
  # Test the project
  Run npm test 
 
- # Project demo 
- ![Travel app demo](demo.gif)
+  
+ <a href="https://youtu.be/HOQejQ1duhk"># Project demo</a>
 
