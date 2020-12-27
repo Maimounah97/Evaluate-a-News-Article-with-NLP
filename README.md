@@ -24,6 +24,6 @@
  # Test the project
  Run npm test 
 
-  
- <a href="https://youtu.be/HOQejQ1duhk"># Project demo</a>
+ # Project demo 
+ <a href="https://youtu.be/HOQejQ1duhk">Click here</a>
 
